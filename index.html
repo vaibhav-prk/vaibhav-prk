@@ -1,560 +1,1387 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vaibhav Prakash - portfolio</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231e1e2e'/><text x='50' y='68' font-family='monospace' font-weight='bold' font-size='52' fill='%23cba6f7' text-anchor='middle'>VP</text></svg>">
-<link href="ps://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<style>
-:root {
-  --base:     #1e1e2e;
-  --mantle:   #181825;
-  --crust:    #11111b;
-  --surface0: #313244;
-  --surface1: #45475a;
-  --surface2: #585b70;
-  --overlay0: #6c7086;
-  --overlay1: #7f849c;
-  --subtext0: #a6adc8;
-  --subtext1: #bac2de;
-  --text:     #cdd6f4;
-  --blue:     #89b4fa;
-  --teal:     #94e2d5;
-  --green:    #a6e3a1;
-  --yellow:   #f9e2af;
-  --peach:    #fab387;
-  --red:      #f38ba8;
-  --mauve:    #cba6f7;
-  --pink:     #f5c2e7;
-}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--base);color:var(--text);font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.7;overflow-x:hidden}
-::-webkit-scrollbar{width:6px}
-::-webkit-scrollbar-track{background:var(--mantle)}
-::-webkit-scrollbar-thumb{background:var(--surface1);border-radius:3px}
-::-webkit-scrollbar-thumb:hover{background:var(--mauve)}
-::selection{background:var(--mauve);color:var(--crust)}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaibhav Prakash - portfolio</title>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231e1e2e'/><text x='50' y='68' font-family='monospace' font-weight='bold' font-size='52' fill='%23cba6f7' text-anchor='middle'>VP</text></svg>">
+  <link
+    href="ps://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --base: #1e1e2e;
+      --mantle: #181825;
+      --crust: #11111b;
+      --surface0: #313244;
+      --surface1: #45475a;
+      --surface2: #585b70;
+      --overlay0: #6c7086;
+      --overlay1: #7f849c;
+      --subtext0: #a6adc8;
+      --subtext1: #bac2de;
+      --text: #cdd6f4;
+      --blue: #89b4fa;
+      --teal: #94e2d5;
+      --green: #a6e3a1;
+      --yellow: #f9e2af;
+      --peach: #fab387;
+      --red: #f38ba8;
+      --mauve: #cba6f7;
+      --pink: #f5c2e7;
+    }
 
-/* TOPBAR */
-#topbar{position:fixed;top:0;left:0;right:0;height:32px;background:var(--crust);border-bottom:1px solid var(--surface0);display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:1000;font-size:12px}
-.tb-left{display:flex;align-items:center;gap:6px}
-.tb-dot{width:10px;height:10px;border-radius:50%}
-.tb-dot.r{background:var(--red)}
-.tb-dot.y{background:var(--yellow)}
-.tb-dot.g{background:var(--green)}
-.tb-session{color:var(--subtext0);margin-left:10px}
-.tb-session b{color:var(--mauve);font-weight:500}
-.tb-tabs{display:flex;gap:2px}
-.tb-tab{padding:5px 14px;background:var(--surface0);color:var(--subtext0);border-radius:4px 4px 0 0;cursor:pointer;font-size:11px;text-decoration:none;font-family:inherit;transition:background .18s,color .18s;border:none}
-.tb-tab:hover{background:var(--surface1);color:var(--text)}
-.tb-tab.active{background:var(--surface1);color:var(--mauve)}
-.tb-right{color:var(--subtext0);font-size:11px;display:flex;gap:14px;align-items:center}
-#clock{color:var(--green)}
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
 
-/* HERO */
-#hero{min-height:100vh;padding-top:32px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;position:relative;overflow:hidden}
-#hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--surface0) 1px,transparent 1px),linear-gradient(90deg,var(--surface0) 1px,transparent 1px);background-size:44px 44px;opacity:.1;pointer-events:none}
-#hero::after{content:'';position:absolute;top:15%;left:50%;transform:translateX(-50%);width:700px;height:480px;background:radial-gradient(ellipse,rgba(203,166,247,.07) 0%,transparent 68%);pointer-events:none}
-.terminal-window{width:860px;background:var(--mantle);border:1px solid var(--surface1);border-radius:10px;box-shadow:0 28px 72px rgba(0,0,0,.65),0 0 0 1px var(--surface0);position:relative;z-index:1;animation:fadeUp .6s ease both}
-@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
-.tw-titlebar{background:var(--crust);border-radius:10px 10px 0 0;border-bottom:1px solid var(--surface0);padding:10px 16px;display:flex;align-items:center;gap:8px}
-.tw-dot{width:12px;height:12px;border-radius:50%}
-.tw-dot.r{background:var(--red)}
-.tw-dot.y{background:var(--yellow)}
-.tw-dot.g{background:var(--green)}
-.tw-wintitle{flex:1;text-align:center;color:var(--subtext0);font-size:12px;margin-left:-48px}
-.tw-body{padding:22px 24px;height:380px;overflow-y:auto}
-.tl{display:flex;align-items:flex-start;margin-bottom:2px}
-.tl-p{color:var(--green);white-space:nowrap;margin-right:8px;flex-shrink:0;font-size:13px}
-.tl-p .u{color:var(--blue)}
-.tl-p .h{color:var(--mauve)}
-.tl-p .s{color:var(--overlay1)}
-.tl-p .d{color:var(--yellow)}
-.tl-cmd{color:var(--text);font-size:13px}
-.tl-out{padding:2px 0 10px 0;font-size:13px;line-height:1.7}
+    html {
+      scroll-behavior: smooth
+    }
 
-/* neofetch grid in terminal */
-.neo-grid{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start}
-.neo-ascii-sm{font-size:10px;line-height:1.15;color:var(--mauve);white-space:pre;user-select:none}
-.neo-info-sm{display:flex;flex-direction:column;gap:2px;font-size:12px}
-.ni-row{display:flex;gap:6px}
-.ni-k{color:var(--blue);min-width:60px;flex-shrink:0}
-.ni-sep{color:var(--overlay0)}
-.ni-v{color:var(--text)}
+    body {
+      background: var(--base);
+      color: var(--text);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      line-height: 1.7;
+      overflow-x: hidden
+    }
 
-/* color helpers used by JS */
-.cg{color:var(--green)}
-.cb{color:var(--blue)}
-.cm{color:var(--mauve)}
-.cp{color:var(--peach)}
-.cy{color:var(--yellow)}
-.ct{color:var(--teal)}
-.cd{color:var(--subtext0)}
-.cr{color:var(--red)}
+    ::-webkit-scrollbar {
+      width: 6px
+    }
 
-.term-input-row{display:flex;align-items:center;border-top:1px solid var(--surface0);padding:11px 24px;gap:8px}
-#term-input{flex:1;background:transparent;border:none;outline:none;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:13px;caret-color:var(--mauve)}
-#term-input::placeholder{color:var(--overlay0)}
-.scroll-hint{font-size:12px;color:var(--subtext0);text-align:center;z-index:1;animation:pulse 2.2s ease-in-out infinite;letter-spacing:.04em}
-.scroll-hint em{color:var(--mauve);font-style:normal}
-@keyframes pulse{50%{opacity:.3}}
+    ::-webkit-scrollbar-track {
+      background: var(--mantle)
+    }
 
-/* SECTIONS */
-section{max-width:920px;margin:0 auto;padding:72px 24px;border-top:1px solid var(--surface0)}
-.sec-header{display:flex;align-items:center;gap:10px;margin-bottom:36px}
-.sec-header .dollar{color:var(--green);font-size:13px}
-.sec-header .cmd{color:var(--blue);font-size:13px}
-.sec-divider{flex:1;height:1px;background:var(--surface0)}
-.sec-label{font-size:11px;color:var(--overlay0);letter-spacing:.12em;text-transform:uppercase}
+    ::-webkit-scrollbar-thumb {
+      background: var(--surface1);
+      border-radius: 3px
+    }
 
-/* ABOUT */
-.neofetch{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:start;background:var(--mantle);border:1px solid var(--surface1);border-radius:8px;padding:32px}
-@media(max-width:600px){.neofetch{grid-template-columns:1fr;gap:20px}}
-.ascii-big{font-size:11px;line-height:1.15;color:var(--mauve);white-space:pre;user-select:none}
-.neo-name{font-size:17px;font-weight:700;color:var(--text);margin-bottom:3px}
-.neo-name span{color:var(--mauve)}
-.neo-sep{color:var(--surface2);margin-bottom:10px}
-.neo-row{display:flex;gap:8px;font-size:13px;margin-bottom:3px}
-.ank{color:var(--blue);min-width:72px;flex-shrink:0}
-.anc{color:var(--overlay0)}
-.anv{color:var(--text)}
-.anv.open{color:var(--green)}
-.neo-bio{color:var(--subtext0);font-size:12px;max-width:100%;line-height:1.75;margin-top:14px;border-top:1px solid var(--surface0);padding-top:14px}
-.cdots{display:flex;gap:5px;margin-top:16px}
-.cdot{width:16px;height:16px;border-radius:50%}
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--mauve)
+    }
 
-/* SKILLS */
-.skills-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
-.skill-group{background:var(--mantle);border:1px solid var(--surface1);border-radius:8px;padding:20px}
-.sg-title{font-size:11px;color:var(--mauve);text-transform:uppercase;letter-spacing:.1em;margin-bottom:16px;display:flex;align-items:center;gap:7px}
-.sg-title::before{content:'▶';font-size:8px}
-.tag-cloud{display:flex;flex-wrap:wrap;gap:8px}
-.tag{padding:3px 10px;border-radius:4px;font-size:11px;background:var(--surface0);color:var(--subtext1);border:1px solid var(--surface1);transition:border-color .18s,color .18s}
-.tag:hover{border-color:var(--mauve);color:var(--mauve)}
+    ::selection {
+      background: var(--mauve);
+      color: var(--crust)
+    }
 
-/* PROJECTS */
-.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:18px}
-.pkg-card{background:var(--mantle);border:1px solid var(--surface1);border-radius:8px;padding:22px 24px;position:relative;overflow:hidden;transition:border-color .22s,transform .2s}
-.pkg-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--mauve);transform:scaleX(0);transform-origin:left;transition:transform .28s ease}
-.pkg-card:hover{border-color:var(--mauve);transform:translateY(-3px)}
-.pkg-card:hover::before{transform:scaleX(1)}
-.pkg-name{color:var(--mauve);font-weight:700;font-size:15px;margin-bottom:10px}
-.pkg-row{display:flex;gap:8px;font-size:12px;margin-bottom:3px}
-.pk{color:var(--blue);min-width:80px;flex-shrink:0}
-.ps{color:var(--overlay0)}
-.pv{color:var(--subtext1)}
-.pkg-desc{color:var(--subtext0);font-size:12px;line-height:1.75;margin:10px 0}
-.tech-tags{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 6px}
-.tech-tag{padding:2px 8px;border-radius:3px;font-size:10px;background:var(--surface0);color:var(--peach);letter-spacing:.04em}
-.pkg-status{color:var(--green);font-size:11px}
-.pkg-links{display:flex;gap:10px;margin-top:14px;padding-top:12px;border-top:1px solid var(--surface0)}
-.pkg-link{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:4px;font-size:11px;text-decoration:none;border:1px solid var(--blue);color:var(--blue);font-family:inherit;cursor:pointer;background:transparent;transition:background .18s,color .18s}
-.pkg-link:hover{background:var(--blue);color:var(--crust)}
+    /* TOPBAR */
+    #topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 32px;
+      background: var(--crust);
+      border-bottom: 1px solid var(--surface0);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      z-index: 1000;
+      font-size: 12px
+    }
 
-/* CERTS */
-.cert-list{display:flex;flex-direction:column;gap:12px}
-.cert-card{background:var(--mantle);border:1px solid var(--surface1);border-radius:8px;padding:16px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;transition:border-color .18s}
-.cert-card:hover{border-color:var(--green)}
-.cert-name{color:var(--text);font-size:13px;font-weight:600}
-.cert-issuer{color:var(--subtext0);font-size:12px;margin-top:2px}
+    .tb-left {
+      display: flex;
+      align-items: center;
+      gap: 6px
+    }
 
-/* CONTACT */
-.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;background:var(--mantle);border:1px solid var(--surface1);border-radius:8px;padding:32px}
-@media(max-width:600px){.contact-wrap{grid-template-columns:1fr}}
-.contact-links{display:flex;flex-direction:column;gap:10px}
-.cl{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:6px;border:1px solid var(--surface1);text-decoration:none;color:var(--text);transition:border-color .18s,background .18s}
-.cl:hover{border-color:var(--mauve);background:rgba(203,166,247,.05)}
-.cl-icon{color:var(--mauve);width:20px;text-align:center;font-size:15px}
-.cl-label{color:var(--subtext0);font-size:11px}
-.cl-val{color:var(--text);font-size:13px}
-.contact-note{display:flex;flex-direction:column;justify-content:center;gap:12px}
-.contact-note h3{color:var(--mauve);font-size:18px;font-weight:700}
-.contact-note p{color:var(--subtext0);font-size:13px;line-height:1.75}
-.resume-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:var(--mauve);color:var(--crust);border-radius:6px;text-decoration:none;font-weight:700;font-size:13px;font-family:inherit;border:none;cursor:pointer;transition:opacity .18s,transform .15s;width:fit-content}
-.resume-btn:hover{opacity:.85;transform:translateY(-2px)}
+    .tb-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%
+    }
 
-/* FOOTER */
-footer{border-top:1px solid var(--surface0);background:var(--crust);padding:18px 24px;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--overlay0)}
-footer b{color:var(--mauve);font-weight:500}
+    .tb-dot.r {
+      background: var(--red)
+    }
 
-a.cert-card {
-  text-decoration: none;
-  display: flex;
-  cursor: pointer;
-}
-a.cert-card:hover {
-  border-color: var(--green);
-}
-@media (max-width: 768px) {
+    .tb-dot.y {
+      background: var(--yellow)
+    }
 
-  /* ── topbar ── */
-  #topbar {
-    flex-wrap: wrap;
-    height: auto;
-    padding: 6px 12px;
-    gap: 4px;
-    justify-content: flex-start;
-  }
-  .tb-left {width: 100%; }
-  .tb-tabs {
-    order: 3;
-    width: 100%;
-    overflow-x: auto;
-    gap: 2px;
-    padding-bottom: 4px;
-    scrollbar-width: none;
-  }
-  .tb-tab { font-size: 10px; padding: 4px 10px; width: auto-fit }
-  .tb-right { display: none; }
-  .tb-session { font-size: 11px; }
+    .tb-dot.g {
+      background: var(--green)
+    }
 
-  /* ── hero padding to account for taller topbar ── */
-  #hero { padding-top: 70px; }
+    .tb-session {
+      color: var(--subtext0);
+      margin-left: 10px
+    }
 
-  /* ── terminal ── */
-  .terminal-window { width: 95vw;}
-  .tw-body { height: 3400px; padding: 12px 14px; font-size: 12px; }
+    .tb-session b {
+      color: var(--mauve);
+      font-weight: 500
+    }
 
+    .tb-tabs {
+      display: flex;
+      gap: 2px
+    }
 
-  /* fix input row overflow ── */
-  .term-input-row {
-    padding: 10px 14px;
+    .tb-tab {
+      padding: 5px 14px;
+      background: var(--surface0);
+      color: var(--subtext0);
+      border-radius: 4px 4px 0 0;
+      cursor: pointer;
+      font-size: 11px;
+      text-decoration: none;
+      font-family: inherit;
+      transition: background .18s, color .18s;
+      border: none
+    }
+
+    .tb-tab:hover {
+      background: var(--surface1);
+      color: var(--text)
+    }
+
+    .tb-tab.active {
+      background: var(--surface1);
+      color: var(--mauve)
+    }
+
+    .tb-right {
+      color: var(--subtext0);
+      font-size: 11px;
+      display: flex;
+      gap: 14px;
+      align-items: center
+    }
+
+    #clock {
+      color: var(--green)
+    }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      padding-top: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      position: relative;
+      overflow: hidden
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(var(--surface0) 1px, transparent 1px), linear-gradient(90deg, var(--surface0) 1px, transparent 1px);
+      background-size: 44px 44px;
+      opacity: .1;
+      pointer-events: none
+    }
+
+    #hero::after {
+      content: '';
+      position: absolute;
+      top: 15%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 480px;
+      background: radial-gradient(ellipse, rgba(203, 166, 247, .07) 0%, transparent 68%);
+      pointer-events: none
+    }
+
+    .terminal-window {
+      width: 860px;
+      background: var(--mantle);
+      border: 1px solid var(--surface1);
+      border-radius: 10px;
+      box-shadow: 0 28px 72px rgba(0, 0, 0, .65), 0 0 0 1px var(--surface0);
+      position: relative;
+      z-index: 1;
+      animation: fadeUp .6s ease both
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(26px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .tw-titlebar {
+      background: var(--crust);
+      border-radius: 10px 10px 0 0;
+      border-bottom: 1px solid var(--surface0);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .tw-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%
+    }
+
+    .tw-dot.r {
+      background: var(--red)
+    }
+
+    .tw-dot.y {
+      background: var(--yellow)
+    }
+
+    .tw-dot.g {
+      background: var(--green)
+    }
+
+    .tw-wintitle {
+      flex: 1;
+      text-align: center;
+      color: var(--subtext0);
+      font-size: 12px;
+      margin-left: -48px
+    }
+
+    .tw-body {
+      padding: 22px 24px;
+      height: 380px;
+      overflow-y: auto
+    }
+
+    .tl {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 2px
+    }
+
+    .tl-p {
+      color: var(--green);
+      white-space: nowrap;
+      margin-right: 8px;
+      flex-shrink: 0;
+      font-size: 13px
+    }
+
+    .tl-p .u {
+      color: var(--blue)
+    }
+
+    .tl-p .h {
+      color: var(--mauve)
+    }
+
+    .tl-p .s {
+      color: var(--overlay1)
+    }
+
+    .tl-p .d {
+      color: var(--yellow)
+    }
+
+    .tl-cmd {
+      color: var(--text);
+      font-size: 13px
+    }
+
+    .tl-out {
+      padding: 2px 0 10px 0;
+      font-size: 13px;
+      line-height: 1.7
+    }
+
+    /* neofetch grid in terminal */
+    .neo-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 24px;
+      align-items: start
+    }
+
+    .neo-ascii-sm {
+      font-size: 10px;
+      line-height: 1.15;
+      color: var(--mauve);
+      white-space: pre;
+      user-select: none
+    }
+
+    .neo-info-sm {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      font-size: 12px
+    }
+
+    .ni-row {
+      display: flex;
+      gap: 6px
+    }
+
+    .ni-k {
+      color: var(--blue);
+      min-width: 60px;
+      flex-shrink: 0
+    }
+
+    .ni-sep {
+      color: var(--overlay0)
+    }
+
+    .ni-v {
+      color: var(--text)
+    }
+
+    /* color helpers used by JS */
+    .cg {
+      color: var(--green)
+    }
+
+    .cb {
+      color: var(--blue)
+    }
+
+    .cm {
+      color: var(--mauve)
+    }
+
+    .cp {
+      color: var(--peach)
+    }
+
+    .cy {
+      color: var(--yellow)
+    }
+
+    .ct {
+      color: var(--teal)
+    }
+
+    .cd {
+      color: var(--subtext0)
+    }
+
+    .cr {
+      color: var(--red)
+    }
+
+    .term-input-row {
+      display: flex;
+      align-items: center;
+      border-top: 1px solid var(--surface0);
+      padding: 11px 24px;
+      gap: 8px
+    }
+
+    #term-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      caret-color: var(--mauve)
+    }
+
+    #term-input::placeholder {
+      color: var(--overlay0)
+    }
+
+    .scroll-hint {
+      font-size: 12px;
+      color: var(--subtext0);
+      text-align: center;
+      z-index: 1;
+      animation: pulse 2.2s ease-in-out infinite;
+      letter-spacing: .04em
+    }
+
+    .scroll-hint em {
+      color: var(--mauve);
+      font-style: normal
+    }
+
+    @keyframes pulse {
+      50% {
+        opacity: .3
+      }
+    }
+
+    /* SECTIONS */
+    section {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 72px 24px;
+      border-top: 1px solid var(--surface0)
+    }
+
+    .sec-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 36px
+    }
+
+    .sec-header .dollar {
+      color: var(--green);
+      font-size: 13px
+    }
+
+    .sec-header .cmd {
+      color: var(--blue);
+      font-size: 13px
+    }
+
+    .sec-divider {
+      flex: 1;
+      height: 1px;
+      background: var(--surface0)
+    }
+
+    .sec-label {
+      font-size: 11px;
+      color: var(--overlay0);
+      letter-spacing: .12em;
+      text-transform: uppercase
+    }
+
+    /* ABOUT */
+    .neofetch {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 44px;
+      align-items: start;
+      background: var(--mantle);
+      border: 1px solid var(--surface1);
+      border-radius: 8px;
+      padding: 32px
+    }
+
+    @media(max-width:600px) {
+      .neofetch {
+        grid-template-columns: 1fr;
+        gap: 20px
+      }
+    }
+
+    .ascii-big {
+      font-size: 11px;
+      line-height: 1.15;
+      color: var(--mauve);
+      white-space: pre;
+      user-select: none
+    }
+
+    .neo-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 3px
+    }
+
+    .neo-name span {
+      color: var(--mauve)
+    }
+
+    .neo-sep {
+      color: var(--surface2);
+      margin-bottom: 10px
+    }
+
+    .neo-row {
+      display: flex;
+      gap: 8px;
+      font-size: 13px;
+      margin-bottom: 3px
+    }
+
+    .ank {
+      color: var(--blue);
+      min-width: 72px;
+      flex-shrink: 0
+    }
+
+    .anc {
+      color: var(--overlay0)
+    }
+
+    .anv {
+      color: var(--text)
+    }
+
+    .anv.open {
+      color: var(--green)
+    }
+
+    .neo-bio {
+      color: var(--subtext0);
+      font-size: 12px;
+      max-width: 100%;
+      line-height: 1.75;
+      margin-top: 14px;
+      border-top: 1px solid var(--surface0);
+      padding-top: 14px
+    }
+
+    .cdots {
+      display: flex;
+      gap: 5px;
+      margin-top: 16px
+    }
+
+    .cdot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%
+    }
+
+    /* SKILLS */
+    .skills-wrap {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px
+    }
+
+    .skill-group {
+      background: var(--mantle);
+      border: 1px solid var(--surface1);
+      border-radius: 8px;
+      padding: 20px
+    }
+
+    .sg-title {
+      font-size: 11px;
+      color: var(--mauve);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 7px
+    }
+
+    .sg-title::before {
+      content: '▶';
+      font-size: 8px
+    }
+
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px
+    }
+
+    .tag {
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+      background: var(--surface0);
+      color: var(--subtext1);
+      border: 1px solid var(--surface1);
+      transition: border-color .18s, color .18s
+    }
+
+    .tag:hover {
+      border-color: var(--mauve);
+      color: var(--mauve)
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 18px
+    }
+
+    .pkg-card {
+      background: var(--mantle);
+      border: 1px solid var(--surface1);
+      border-radius: 8px;
+      padding: 22px 24px;
+      position: relative;
       overflow: hidden;
-  }
-  .tl-prompt { font-size: 11px; white-space: nowrap; flex-shrink: 0; }
-  #term-input { font-size: 12px; min-width: 0; width: 100%; }
+      transition: border-color .22s, transform .2s
+    }
 
-  /* ── sections ── */
-  section { padding: 48px 16px; }
+    .pkg-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--mauve);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .28s ease
+    }
 
-  /* ── neofetch / about ── */
-  .neofetch {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 20px;
-  }
-  .ascii { font-size: 9px; }
-  .neo-row { flex-wrap: wrap; }
-  .nk { min-width: 72px; }
-  .neo-bio { font-size: 12px; }
+    .pkg-card:hover {
+      border-color: var(--mauve);
+      transform: translateY(-3px)
+    }
 
-  /* ── skills ── */
-  .skills-wrap { grid-template-columns: 1fr; }
-  .sbar-name { width: 64px; font-size: 11px; }
+    .pkg-card:hover::before {
+      transform: scaleX(1)
+    }
 
-  /* ── projects ── */
-  .projects-grid { grid-template-columns: 1fr; }
-  .pkg-card { padding: 16px; }
-  .pkg-name { font-size: 14px; }
-  .pkg-row { font-size: 11px; }
-  .pkg-desc { font-size: 12px; }
-  .pkg-links { flex-wrap: wrap; }
+    .pkg-name {
+      color: var(--mauve);
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 10px
+    }
 
-  /* ── contact ── */
-  .contact-wrap {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 20px;
-  }
+    .pkg-row {
+      display: flex;
+      gap: 8px;
+      font-size: 12px;
+      margin-bottom: 3px
+    }
 
-  /* ── footer ── */
-  footer {
-    flex-direction: column;
-    gap: 6px;
-    text-align: center;
-    padding: 14px;
-  }
-}
+    .pk {
+      color: var(--blue);
+      min-width: 80px;
+      flex-shrink: 0
+    }
 
-@media (max-width: 400px) {
-  .tw-body { height: 240px; font-size: 11px; }
-  .ascii { display: none; }
-  .pkg-card { padding: 14px; }
-}
-</style>
+    .ps {
+      color: var(--overlay0)
+    }
+
+    .pv {
+      color: var(--subtext1)
+    }
+
+    .pkg-desc {
+      color: var(--subtext0);
+      font-size: 12px;
+      line-height: 1.75;
+      margin: 10px 0
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 10px 0 6px
+    }
+
+    .tech-tag {
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-size: 10px;
+      background: var(--surface0);
+      color: var(--peach);
+      letter-spacing: .04em
+    }
+
+    .pkg-status {
+      color: var(--green);
+      font-size: 11px
+    }
+
+    .pkg-links {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--surface0)
+    }
+
+    .pkg-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 12px;
+      border-radius: 4px;
+      font-size: 11px;
+      text-decoration: none;
+      border: 1px solid var(--blue);
+      color: var(--blue);
+      font-family: inherit;
+      cursor: pointer;
+      background: transparent;
+      transition: background .18s, color .18s
+    }
+
+    .pkg-link:hover {
+      background: var(--blue);
+      color: var(--crust)
+    }
+
+    /* CERTS */
+    .cert-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px
+    }
+
+    .cert-card {
+      background: var(--mantle);
+      border: 1px solid var(--surface1);
+      border-radius: 8px;
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: border-color .18s
+    }
+
+    .cert-card:hover {
+      border-color: var(--green)
+    }
+
+    .cert-name {
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600
+    }
+
+    .cert-issuer {
+      color: var(--subtext0);
+      font-size: 12px;
+      margin-top: 2px
+    }
+
+    /* CONTACT */
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      background: var(--mantle);
+      border: 1px solid var(--surface1);
+      border-radius: 8px;
+      padding: 32px
+    }
+
+    @media(max-width:600px) {
+      .contact-wrap {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+
+    .cl {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 6px;
+      border: 1px solid var(--surface1);
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color .18s, background .18s
+    }
+
+    .cl:hover {
+      border-color: var(--mauve);
+      background: rgba(203, 166, 247, .05)
+    }
+
+    .cl-icon {
+      color: var(--mauve);
+      width: 20px;
+      text-align: center;
+      font-size: 15px
+    }
+
+    .cl-label {
+      color: var(--subtext0);
+      font-size: 11px
+    }
+
+    .cl-val {
+      color: var(--text);
+      font-size: 13px
+    }
+
+    .contact-note {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px
+    }
+
+    .contact-note h3 {
+      color: var(--mauve);
+      font-size: 18px;
+      font-weight: 700
+    }
+
+    .contact-note p {
+      color: var(--subtext0);
+      font-size: 13px;
+      line-height: 1.75
+    }
+
+    .resume-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: var(--mauve);
+      color: var(--crust);
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+      font-family: inherit;
+      border: none;
+      cursor: pointer;
+      transition: opacity .18s, transform .15s;
+      width: fit-content
+    }
+
+    .resume-btn:hover {
+      opacity: .85;
+      transform: translateY(-2px)
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--surface0);
+      background: var(--crust);
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--overlay0)
+    }
+
+    footer b {
+      color: var(--mauve);
+      font-weight: 500
+    }
+
+    a.cert-card {
+      text-decoration: none;
+      display: flex;
+      cursor: pointer;
+    }
+
+    a.cert-card:hover {
+      border-color: var(--green);
+    }
+
+    @media (max-width: 768px) {
+
+      /* ── topbar ── */
+      #topbar {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 6px 12px;
+        gap: 4px;
+        justify-content: flex-start;
+      }
+
+      .tb-left {
+        width: 100%;
+      }
+
+      .tb-tabs {
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+        gap: 2px;
+        padding-bottom: 4px;
+        scrollbar-width: none;
+      }
+
+      .tb-tab {
+        font-size: 10px;
+        padding: 4px 10px;
+        width: auto-fit
+      }
+
+      .tb-right {
+        display: none;
+      }
+
+      .tb-session {
+        font-size: 11px;
+      }
+
+      /* ── hero padding to account for taller topbar ── */
+      #hero {
+        padding-top: 70px;
+      }
+
+      /* ── terminal ── */
+      .terminal-window {
+        width: 95vw;
+      }
+
+      .tw-body {
+        height: 3400px;
+        padding: 12px 14px;
+        font-size: 12px;
+      }
+
+
+      /* fix input row overflow ── */
+      .term-input-row {
+        padding: 10px 14px;
+        overflow: hidden;
+      }
+
+      .tl-prompt {
+        font-size: 11px;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      #term-input {
+        font-size: 12px;
+        min-width: 0;
+        width: 100%;
+      }
+
+      /* ── sections ── */
+      section {
+        padding: 48px 16px;
+      }
+
+      /* ── neofetch / about ── */
+      .neofetch {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 20px;
+      }
+
+      .ascii {
+        font-size: 9px;
+      }
+
+      .neo-row {
+        flex-wrap: wrap;
+      }
+
+      .nk {
+        min-width: 72px;
+      }
+
+      .neo-bio {
+        font-size: 12px;
+      }
+
+      /* ── skills ── */
+      .skills-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .sbar-name {
+        width: 64px;
+        font-size: 11px;
+      }
+
+      /* ── projects ── */
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pkg-card {
+        padding: 16px;
+      }
+
+      .pkg-name {
+        font-size: 14px;
+      }
+
+      .pkg-row {
+        font-size: 11px;
+      }
+
+      .pkg-desc {
+        font-size: 12px;
+      }
+
+      .pkg-links {
+        flex-wrap: wrap;
+      }
+
+      /* ── contact ── */
+      .contact-wrap {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 20px;
+      }
+
+      /* ── footer ── */
+      footer {
+        flex-direction: column;
+        gap: 6px;
+        text-align: center;
+        padding: 14px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .tw-body {
+        height: 240px;
+        font-size: 11px;
+      }
+
+      .ascii {
+        display: none;
+      }
+
+      .pkg-card {
+        padding: 14px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- TOPBAR -->
-<div id="topbar">
-  <div class="tb-left">
-    <div class="tb-dot r"></div>
-    <div class="tb-dot y"></div>
-    <div class="tb-dot g"></div>
-    <span class="tb-session"><b>vaibhav</b>@portfolio &mdash; zsh</span>
-  </div>
-  <div class="tb-tabs">
-    <a href="#hero"             class="tb-tab active">~</a>
-    <a href="#about-section"    class="tb-tab">about</a>
-    <a href="#skills-section"   class="tb-tab">skills</a>
-    <a href="#projects-section" class="tb-tab">projects</a>
-    <a href="#contact-section"  class="tb-tab">contact</a>
-  </div>
-  <div class="tb-right">
-    <span id="clock">--:--:--</span>
-    &nbsp;|&nbsp; fedora &middot; linux
-  </div>
-</div>
-
-<!-- HERO -->
-<div id="hero">
-  <div class="terminal-window">
-    <div class="tw-titlebar">
-      <div class="tw-dot r"></div>
-      <div class="tw-dot y"></div>
-      <div class="tw-dot g"></div>
-      <div class="tw-wintitle">vaibhav@portfolio: ~</div>
+  <!-- TOPBAR -->
+  <div id="topbar">
+    <div class="tb-left">
+      <div class="tb-dot r"></div>
+      <div class="tb-dot y"></div>
+      <div class="tb-dot g"></div>
+      <span class="tb-session"><b>vaibhav</b>@portfolio &mdash; zsh</span>
     </div>
-    <div class="tw-body" id="tw-body"></div>
-    <div class="term-input-row">
-      <span class="tl-p"><span class="u">vaibhav</span><span class="s">@</span><span class="h">portfolio</span> <span class="d">~</span> $&nbsp;</span>
-      <input id="term-input" type="text" placeholder="'help' for commands..." autocomplete="off" spellcheck="false">
+    <div class="tb-tabs">
+      <a href="#hero" class="tb-tab active">~</a>
+      <a href="#about-section" class="tb-tab">about</a>
+      <a href="#skills-section" class="tb-tab">skills</a>
+      <a href="#projects-section" class="tb-tab">projects</a>
+      <a href="#contact-section" class="tb-tab">contact</a>
+    </div>
+    <div class="tb-right">
+      <span id="clock">--:--:--</span>
+      &nbsp;|&nbsp; fedora &middot; linux
     </div>
   </div>
-  <div class="scroll-hint"># not a terminal person? &nbsp;<em>scroll down &darr;</em></div>
-</div>
 
-<!-- ABOUT -->
-<section id="about-section">
-  <div class="sec-header">
-    <span class="dollar">$</span>
-    <span class="cmd">cat about.txt</span>
-    <div class="sec-divider"></div>
-    <span class="sec-label">about</span>
+  <!-- HERO -->
+  <div id="hero">
+    <div class="terminal-window">
+      <div class="tw-titlebar">
+        <div class="tw-dot r"></div>
+        <div class="tw-dot y"></div>
+        <div class="tw-dot g"></div>
+        <div class="tw-wintitle">vaibhav@portfolio: ~</div>
+      </div>
+      <div class="tw-body" id="tw-body"></div>
+      <div class="term-input-row">
+        <span class="tl-p"><span class="u">vaibhav</span><span class="s">@</span><span class="h">portfolio</span> <span
+            class="d">~</span> $&nbsp;</span>
+        <input id="term-input" type="text" placeholder="'help' for commands..." autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+    <div class="scroll-hint"># not a terminal person? &nbsp;<em>scroll down &darr;</em></div>
   </div>
-  <div class="neofetch">
-    <div class="ascii-big" aria-hidden="true">&#x2588;&#x2588;&#x2557;   &#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;
-&#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2588;&#x2588;&#x2557;
-&#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2554;&#x255D;
-&#x255A;&#x2588;&#x2588;&#x2557; &#x2588;&#x2588;&#x2554;&#x255D;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2550;&#x255D;
- &#x255A;&#x2588;&#x2588;&#x2588;&#x2588;&#x2554;&#x255D; &#x2588;&#x2588;&#x2551;
-  &#x255A;&#x2550;&#x2550;&#x2550;&#x255D;  &#x255A;&#x2550;&#x255D;</div>
-    <div>
-      <div class="neo-name">vaibhav<span>@</span>portfolio</div>
-      <div class="neo-sep">&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;</div>
-      <div class="neo-row"><span class="ank">Interests</span><span class="anc">:</span><span class="anv">open source · tinkering · gaming</span></div>
-      <div class="neo-row"><span class="ank">Learning</span><span class="anc">:</span><span class="anv">Kubernetes · Linux internals</span></div>
-      <div class="neo-row"><span class="ank">Focus</span><span class="anc">:</span><span class="anv">Backend Dev &rarr; DevOps</span></div>
-      <div class="neo-row"><span class="ank">Status</span><span class="anc">:</span><span class="anv open">open to opportunities</span></div>
-      <div class="neo-bio">
-        Backend developer with hands-on experience in Python, Go, and Java.
-        Targeting backend engineering roles with a long-term focus on DevOps and infrastructure.
-      </div>
-      <div class="cdots">
-        <div class="cdot" style="background:var(--red)"></div>
-        <div class="cdot" style="background:var(--peach)"></div>
-        <div class="cdot" style="background:var(--yellow)"></div>
-        <div class="cdot" style="background:var(--green)"></div>
-        <div class="cdot" style="background:var(--teal)"></div>
-        <div class="cdot" style="background:var(--blue)"></div>
-        <div class="cdot" style="background:var(--mauve)"></div>
-        <div class="cdot" style="background:var(--pink)"></div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- SKILLS -->
-<section id="skills-section">
-  <div class="sec-header">
-    <span class="dollar">$</span>
-    <span class="cmd">skills --list</span>
-    <div class="sec-divider"></div>
-    <span class="sec-label">skills</span>
-  </div>
-  <div class="skills-wrap">
-    <div class="skill-group">
-      <div class="sg-title">Languages</div>
-      <div class="tag-cloud">
-        <span class="tag">Python</span>
-        <span class="tag">Go</span>
-        <span class="tag">C / C++</span>
-        <span class="tag">Bash</span>
-        <span class="tag">Java</span>
-      </div>
+  <!-- ABOUT -->
+  <section id="about-section">
+    <div class="sec-header">
+      <span class="dollar">$</span>
+      <span class="cmd">cat about.txt</span>
+      <div class="sec-divider"></div>
+      <span class="sec-label">about</span>
     </div>
-    <div class="skill-group">
-      <div class="sg-title">DevOps &amp; Tools</div>
-      <div class="tag-cloud">
-        <span class="tag">Docker</span>
-        <span class="tag">Kubernetes</span>
-        <span class="tag">Git</span>
-        <span class="tag">GitHub Actions</span>
-        <span class="tag">Linux</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="sg-title">Frameworks &amp; Databases</div>
-      <div class="tag-cloud">
-        <span class="tag">FastAPI</span>
-        <span class="tag">Node.js</span>
-        <span class="tag">Express.js</span>
-        <span class="tag">GTK4</span>
-        <span class="tag">ESP-IDF</span>
-        <span class="tag">FreeRTOS</span>
-        <span class="tag">MongoDB</span>
-        <span class="tag">SQL</span>
-        <span class="tag">REST APIs</span>
-        <span class="tag">BLE Mesh</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects-section">
-  <div class="sec-header">
-    <span class="dollar">$</span>
-    <span class="cmd">projects</span>
-    <div class="sec-divider"></div>
-    <span class="sec-label">projects</span>
-  </div>
-  <div class="projects-grid">
-
-    <div class="pkg-card">
-      <div class="pkg-name">dotfiles</div>
-      <div class="pkg-row"><span class="pk">Language</span><span class="ps">:</span><span class="pv">Bash / Lua</span></div>
-      <div class="pkg-row"><span class="pk">Category</span><span class="ps">:</span><span class="pv">Config / Tooling</span></div>
-      <div class="pkg-row"><span class="pk">Platform</span><span class="ps">:</span><span class="pv">Fedora Linux</span></div>
-      <div class="pkg-desc">Personal Fedora setup &mdash; bash scripts, Lua configs, and custom tooling to keep my environment consistent and reproducible across machines.</div>
-      <div class="tech-tags">
-        <span class="tech-tag">Bash</span><span class="tech-tag">Lua</span>
-        <span class="tech-tag">Fedora</span><span class="tech-tag">Shell</span><span class="tech-tag">Linux</span>
-      </div>
-      <div class="pkg-status">&#x25CF; installed &nbsp;&#x2713; active</div>
-      <div class="pkg-links">
-        <a href="https://github.com/VaibhavPrakash0503/dotfiles" class="pkg-link" target="_blank" rel="noopener">&#x2387; &nbsp;GitHub</a>
-      </div>
-    </div>
-
-    <div class="pkg-card">
-      <div class="pkg-name">LazyLinux</div>
-      <div class="pkg-row"><span class="pk">Language</span><span class="ps">:</span><span class="pv">Go</span></div>
-      <div class="pkg-row"><span class="pk">Category</span><span class="ps">:</span><span class="pv">CLI Tool / System</span></div>
-      <div class="pkg-row"><span class="pk">Platform</span><span class="ps">:</span><span class="pv">All Linux distros</span></div>
-      <div class="pkg-desc">Universal package manager unifying DNF, APT, Pacman, and Flatpak into a single cross-distro CLI with automatic package manager detection.</div>
-      <div class="tech-tags">
-        <span class="tech-tag">Go</span><span class="tech-tag">DNF</span><span class="tech-tag">APT</span>
-        <span class="tech-tag">Pacman</span><span class="tech-tag">Flatpak</span><span class="tech-tag">Bash</span>
-      </div>
-      <div class="pkg-status">&#x25CF; installed &nbsp;&#x2713; active</div>
-      <div class="pkg-links">
-        <a href="https://github.com/VaibhavPrakash0503/lazylinux" class="pkg-link" target="_blank" rel="noopener">&#x2387; &nbsp;GitHub</a>
-      </div>
-    </div>
-
-    <div class="pkg-card">
-      <div class="pkg-name">SteamAlly</div>
-      <div class="pkg-row"><span class="pk">Language</span><span class="ps">:</span><span class="pv">Python</span></div>
-      <div class="pkg-row"><span class="pk">Category</span><span class="ps">:</span><span class="pv">Desktop App / GUI</span></div>
-      <div class="pkg-row"><span class="pk">Platform</span><span class="ps">:</span><span class="pv">Linux (Native/Flatpak/Snap)</span></div>
-      <div class="pkg-desc">GTK4 desktop app for managing non-Steam games on Linux with automatic Wine prefix detection &mdash; slashes setup from 10+ minutes to under 1 minute.</div>
-      <div class="tech-tags">
-        <span class="tech-tag">Python</span><span class="tech-tag">GTK4</span>
-        <span class="tech-tag">Wine</span><span class="tech-tag">Bash</span><span class="tech-tag">Linux</span>
-      </div>
-      <div class="pkg-status">&#x25CF; installed &nbsp;&#x2713; active</div>
-      <div class="pkg-links">
-        <a href="https://github.com/VaibhavPrakash0503/SteamAlly" class="pkg-link" target="_blank" rel="noopener">&#x2387; &nbsp;GitHub</a>
-      </div>
-    </div>
-
-    <div class="pkg-card">
-      <div class="pkg-name">MeshTalk</div>
-      <div class="pkg-row"><span class="pk">Language</span><span class="ps">:</span><span class="pv">C</span></div>
-      <div class="pkg-row"><span class="pk">Category</span><span class="ps">:</span><span class="pv">Embedded / IoT</span></div>
-      <div class="pkg-row"><span class="pk">Hardware</span><span class="ps">:</span><span class="pv">ESP32</span></div>
-      <div class="pkg-desc">Offline P2P chat over Bluetooth mesh on ESP32. Custom BLE vendor models, FreeRTOS task messaging, heartbeat node discovery, and NVS persistent storage.</div>
-      <div class="tech-tags">
-        <span class="tech-tag">C</span><span class="tech-tag">ESP-IDF</span>
-        <span class="tech-tag">BLE Mesh</span><span class="tech-tag">FreeRTOS</span><span class="tech-tag">ESP32</span>
-      </div>
-      <div class="pkg-status">&#x25CF; installed &nbsp;&#x2713; active</div>
-      <div class="pkg-links">
-        <a href="https://github.com/VaibhavPrakash0503/MeshTalk" class="pkg-link" target="_blank" rel="noopener">&#x2387; &nbsp;GitHub</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- CERTS -->
-<section id="certs-section">
-  <div class="sec-header">
-    <span class="dollar">$</span>
-    <span class="cmd">certifications --list</span>
-    <div class="sec-divider"></div>
-    <span class="sec-label">certs</span>
-  </div>
-  <div class="cert-list">
-    <a href="https://www.kaggle.com/learn/certification/vaibhavprakash0503/python" target="_blank" rel="noopener" class="cert-card">
+    <div class="neofetch">
+      <div class="ascii-big" aria-hidden="true"></div>
       <div>
-        <div class="cert-name">Python Certification</div>
-        <div class="cert-issuer">Kaggle &nbsp;&middot;&nbsp; Feb, 2024</div>
+        <div class="neo-name">vaibhav<span>@</span>portfolio</div>
+        <div class="neo-sep">
+          &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;
+        </div>
+        <div class="neo-row"><span class="ank">Interests</span><span class="anc">:</span><span class="anv">open source ·
+            tinkering · gaming</span></div>
+        <div class="neo-row"><span class="ank">Learning</span><span class="anc">:</span><span class="anv">Kubernetes ·
+            Linux internals</span></div>
+        <div class="neo-row"><span class="ank">Focus</span><span class="anc">:</span><span class="anv">Backend Dev
+            &rarr; DevOps</span></div>
+        <div class="neo-row"><span class="ank">Status</span><span class="anc">:</span><span class="anv open">open to
+            opportunities</span></div>
+        <div class="neo-bio">
+          Backend developer with hands-on experience in Python, Go, and JavaScript.
+          Targeting backend engineering roles with a long-term focus on DevOps and infrastructure.
+        </div>
+        <div class="cdots">
+          <div class="cdot" style="background:var(--red)"></div>
+          <div class="cdot" style="background:var(--peach)"></div>
+          <div class="cdot" style="background:var(--yellow)"></div>
+          <div class="cdot" style="background:var(--green)"></div>
+          <div class="cdot" style="background:var(--teal)"></div>
+          <div class="cdot" style="background:var(--blue)"></div>
+          <div class="cdot" style="background:var(--mauve)"></div>
+          <div class="cdot" style="background:var(--pink)"></div>
+        </div>
       </div>
-    </a>
-    <div class="cert-list">
-      <a href="https://www.credly.com/badges/ffc9793a-d65f-4f0c-bbc6-907e3a3ad4cc/public_url" taget="_blank" rel="noopener" class="cert-card">
-        <div>
-          <div class="cert-name">Linux 101 &mdash; LFS101</div>
-          <div class="cert-issuer">The Linux Foundation &nbsp;&middot;&nbsp; March, 2026</div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills-section">
+    <div class="sec-header">
+      <span class="dollar">$</span>
+      <span class="cmd">skills --list</span>
+      <div class="sec-divider"></div>
+      <span class="sec-label">skills</span>
+    </div>
+    <div class="skills-wrap">
+      <div class="skill-group">
+        <div class="sg-title">Languages</div>
+        <div class="tag-cloud">
+          <span class="tag">Python</span>
+          <span class="tag">Go</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Bash</span>
+          <span class="tag">C / C++</span>
+          <span class="tag">Java</span>
         </div>
-      </a>
+      </div>
+      <div class="skill-group">
+        <div class="sg-title">DevOps &amp; Tools</div>
+        <div class="tag-cloud">
+          <span class="tag">Docker</span>
+          <span class="tag">Kubernetes</span>
+          <span class="tag">Git</span>
+          <span class="tag">GitHub Actions</span>
+          <span class="tag">Linux</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="sg-title">Frameworks &amp; Databases</div>
+        <div class="tag-cloud">
+          <span class="tag">REST APIs</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">Express.js</span>
+          <span class="tag">React</span>
+          <span class="tag">MongoDB</span>
+          <span class="tag">SQL</span>
+          <span class="tag">GTK4</span>
+          <span class="tag">FreeRTOS</span>
+          <span class="tag">BLE Mesh</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects-section">
+    <div class="sec-header">
+      <span class="dollar">$</span>
+      <span class="cmd">projects</span>
+      <div class="sec-divider"></div>
+      <span class="sec-label">projects</span>
+    </div>
+    <div class="projects-grid">
+
+      <div class="pkg-card">
+        <div class="pkg-name">dotfiles</div>
+        <div class="pkg-row"><span class="pk">Language</span><span class="ps">:</span><span class="pv">Bash / Lua</span>
+        </div>
+        <div class="pkg-row"><span class="pk">Category</span><span class="ps">:</span><span class="pv">Config /
+            Tooling</span></div>
+        <div class="pkg-row"><span class="pk">Platform</span><span class="ps">:</span><span class="pv">Fedora
+            Linux</span></div>
+        <div class="pkg-desc">Personal Fedora setup &mdash; bash scripts, Lua configs, and custom tooling to keep my
+          environment consistent and reproducible across machines.</div>
+        <div class="tech-tags">
+          <span class="tech-tag">Bash</span><span class="tech-tag">Lua</span>
+          <span class="tech-tag">Fedora</span><span class="tech-tag">Shell</span><span class="tech-tag">Linux</span>
+        </div>
+        <div class="pkg-status">&#x25CF; installed &nbsp;&#x2713; active</div>
+        <div class="pkg-links">
+          <a href="https://github.com/VaibhavPrakash0503/dotfiles" class="pkg-link" target="_blank"
+            rel="noopener">&#x2387; &nbsp;GitHub</a>
+        </div>
+      </div>
+
+      <div class="pkg-card">
+        <div class="pkg-name">LazyLinux</div>
+        <div class="pkg-row"><span class="pk">Language</span><span class="ps">:</span><span class="pv">Go</span></div>
+        <div class="pkg-row"><span class="pk">Category</span><span class="ps">:</span><span class="pv">CLI Tool /
+            System</span></div>
+        <div class="pkg-row"><span class="pk">Platform</span><span class="ps">:</span><span class="pv">All Linux
+            distros</span></div>
+        <div class="pkg-desc">Universal package manager unifying DNF, APT, Pacman, and Flatpak into a single
+          cross-distro CLI with automatic package manager detection.</div>
+        <div class="tech-tags">
+          <span class="tech-tag">Go</span><span class="tech-tag">DNF</span><span class="tech-tag">APT</span>
+          <span class="tech-tag">Pacman</span><span class="tech-tag">Flatpak</span><span class="tech-tag">Bash</span>
+        </div>
+        <div class="pkg-status">&#x25CF; installed &nbsp;&#x2713; active</div>
+        <div class="pkg-links">
+          <a href="https://github.com/VaibhavPrakash0503/lazylinux" class="pkg-link" target="_blank"
+            rel="noopener">&#x2387; &nbsp;GitHub</a>
+        </div>
+      </div>
+
+      <div class="pkg-card">
+        <div class="pkg-name">SteamAlly</div>
+        <div class="pkg-row"><span class="pk">Language</span><span class="ps">:</span><span class="pv">Python</span>
+        </div>
+        <div class="pkg-row"><span class="pk">Category</span><span class="ps">:</span><span class="pv">Desktop App /
+            GUI</span></div>
+        <div class="pkg-row"><span class="pk">Platform</span><span class="ps">:</span><span class="pv">Linux
+            (Native/Flatpak/Snap)</span></div>
+        <div class="pkg-desc">GTK4 desktop app for managing non-Steam games on Linux with automatic Wine prefix
+          detection &mdash; slashes setup from 10+ minutes to under 1 minute.</div>
+        <div class="tech-tags">
+          <span class="tech-tag">Python</span><span class="tech-tag">GTK4</span>
+          <span class="tech-tag">Wine</span><span class="tech-tag">Bash</span><span class="tech-tag">Linux</span>
+        </div>
+        <div class="pkg-status">&#x25CF; installed &nbsp;&#x2713; active</div>
+        <div class="pkg-links">
+          <a href="https://github.com/VaibhavPrakash0503/SteamAlly" class="pkg-link" target="_blank"
+            rel="noopener">&#x2387; &nbsp;GitHub</a>
+        </div>
+      </div>
+
+      <div class="pkg-card">
+        <div class="pkg-name">MeshTalk</div>
+        <div class="pkg-row"><span class="pk">Language</span><span class="ps">:</span><span class="pv">C</span></div>
+        <div class="pkg-row"><span class="pk">Category</span><span class="ps">:</span><span class="pv">Embedded /
+            IoT</span></div>
+        <div class="pkg-row"><span class="pk">Hardware</span><span class="ps">:</span><span class="pv">ESP32</span>
+        </div>
+        <div class="pkg-desc">Offline P2P chat over Bluetooth mesh on ESP32. Custom BLE vendor models, FreeRTOS task
+          messaging, heartbeat node discovery, and NVS persistent storage.</div>
+        <div class="tech-tags">
+          <span class="tech-tag">C</span><span class="tech-tag">ESP-IDF</span>
+          <span class="tech-tag">BLE Mesh</span><span class="tech-tag">FreeRTOS</span><span
+            class="tech-tag">ESP32</span>
+        </div>
+        <div class="pkg-status">&#x25CF; installed &nbsp;&#x2713; active</div>
+        <div class="pkg-links">
+          <a href="https://github.com/VaibhavPrakash0503/MeshTalk" class="pkg-link" target="_blank"
+            rel="noopener">&#x2387; &nbsp;GitHub</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CERTS -->
+  <section id="certs-section">
+    <div class="sec-header">
+      <span class="dollar">$</span>
+      <span class="cmd">certifications --list</span>
+      <div class="sec-divider"></div>
+      <span class="sec-label">certs</span>
     </div>
     <div class="cert-list">
-      <a href="https://www.credly.com/badges/f72c07cc-e13b-4bbb-9bb4-2fdcccf8d917/public_url" taget="_blank" rel="noopener" class="cert-card">
-        <div>
-          <div class="cert-name">AWS Academy Gradudate &mdash; Cloud Architecting</div>
-          <div class="cert-issuer">Amazon Web Services Traning and Certification &nbsp;&middot;&nbsp; October, 2025</div>
-        </div>
-      </a>
+      <div class="cert-list">
+        <a href="https://www.credly.com/badges/ffc9793a-d65f-4f0c-bbc6-907e3a3ad4cc/public_url" taget="_blank"
+          rel="noopener" class="cert-card">
+          <div>
+            <div class="cert-name">Linux 101 &mdash; LFS101</div>
+            <div class="cert-issuer">The Linux Foundation &nbsp;&middot;&nbsp; March, 2026</div>
+          </div>
+        </a>
+      </div>
+      <div class="cert-list">
+        <a href="https://www.credly.com/badges/f72c07cc-e13b-4bbb-9bb4-2fdcccf8d917/public_url" taget="_blank"
+          rel="noopener" class="cert-card">
+          <div>
+            <div class="cert-name">AWS Academy Gradudate &mdash; Cloud Architecting</div>
+            <div class="cert-issuer">Amazon Web Services Traning and Certification &nbsp;&middot;&nbsp; October, 2025
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="cert-list">
+        <a href="https://www.kaggle.com/learn/certification/vaibhavprakash0503/python" target="_blank" rel="noopener"
+          class="cert-card">
+          <div>
+            <div class="cert-name">Python Certification</div>
+            <div class="cert-issuer">Kaggle &nbsp;&middot;&nbsp; Feb, 2024</div>
+          </div>
+        </a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CONTACT -->
-<section id="contact-section">
-  <div class="sec-header">
-    <span class="dollar">$</span>
-    <span class="cmd">contact --info</span>
-    <div class="sec-divider"></div>
-    <span class="sec-label">contact</span>
-  </div>
-  <div class="contact-wrap">
-    <div class="contact-links">
-      <a href="mailto:vaibhav.prk05@gmail.com" class="cl">
-        <span class="cl-icon">&#x2709;</span>
-        <div><div class="cl-label">email</div><div class="cl-val">vaibhav.prk05@gmail.com</div></div>
-      </a>
-      <a href="https://github.com/VaibhavPrakash0503" class="cl" target="_blank" rel="noopener">
-        <span class="cl-icon">&#x2387;</span>
-        <div><div class="cl-label">github</div><div class="cl-val">github.com/VaibhavPrakash0503</div></div>
-      </a>
-      <a href="https://linkedin.com/in/vaibhav-prakash-634a952ba" class="cl" target="_blank" rel="noopener">
-        <span class="cl-icon">in</span>
-        <div><div class="cl-label">linkedin</div><div class="cl-val">linkedin.com/in/vaibhav-prakash-634a952ba</div></div>
-      </a>
-      <a href="tel:+919199596081" class="cl">
-        <span class="cl-icon">&#x260E;</span>
-        <div><div class="cl-label">phone</div><div class="cl-val">+91 91995 96081</div></div>
-      </a>
+  <!-- CONTACT -->
+  <section id="contact-section">
+    <div class="sec-header">
+      <span class="dollar">$</span>
+      <span class="cmd">contact --info</span>
+      <div class="sec-divider"></div>
+      <span class="sec-label">contact</span>
     </div>
-    <div class="contact-note">
-      <h3>let's build something.</h3>
-      <p>Open to backend engineering roles and internships. Long-term focused on DevOps and infrastructure. Always up to talk Linux, systems, or open source.</p>
-      <a href="https://drive.google.com/uc?export=download&id=1FKeQXJeCJCmDj59rgeGs92UIW6t6mgjU" class="resume-btn" target="_blank" rel="noopener">&#x2193; &nbsp;Download Resume</a>
+    <div class="contact-wrap">
+      <div class="contact-links">
+        <a href="mailto:vaibhav.prk05@gmail.com" class="cl">
+          <span class="cl-icon">&#x2709;</span>
+          <div>
+            <div class="cl-label">email</div>
+            <div class="cl-val">vaibhav.prk05@gmail.com</div>
+          </div>
+        </a>
+        <a href="https://github.com/VaibhavPrakash0503" class="cl" target="_blank" rel="noopener">
+          <span class="cl-icon">&#x2387;</span>
+          <div>
+            <div class="cl-label">github</div>
+            <div class="cl-val">github.com/VaibhavPrakash0503</div>
+          </div>
+        </a>
+        <a href="https://linkedin.com/in/vaibhav-prakash-634a952ba" class="cl" target="_blank" rel="noopener">
+          <span class="cl-icon">in</span>
+          <div>
+            <div class="cl-label">linkedin</div>
+            <div class="cl-val">linkedin.com/in/vaibhav-prakash-634a952ba</div>
+          </div>
+        </a>
+        <a href="tel:+919199596081" class="cl">
+          <span class="cl-icon">&#x260E;</span>
+          <div>
+            <div class="cl-label">phone</div>
+            <div class="cl-val">+91 91995 96081</div>
+          </div>
+        </a>
+      </div>
+      <div class="contact-note">
+        <h3>let's build something.</h3>
+        <p>Open to backend engineering roles and internships. Long-term focused on DevOps and infrastructure. Always up
+          to talk Linux, systems, or open source.</p>
+        <a href="https://drive.google.com/uc?export=download&id=1FKeQXJeCJCmDj59rgeGs92UIW6t6mgjU" class="resume-btn"
+          target="_blank" rel="noopener">&#x2193; &nbsp;Download Resume</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer>
-  <b>vaibhav@portfolio</b>
-  <span>built on fedora linux &middot; catppuccin mocha</span>
-</footer>
+  <!-- FOOTER -->
+  <footer>
+    <b>vaibhav@portfolio</b>
+    <span>built on fedora linux &middot; catppuccin mocha</span>
+  </footer>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>

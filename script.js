@@ -169,7 +169,7 @@
     'cat steamally': function() { return projectCard(PROJECTS['steamally']); },
     'cat meshtalk': function() { return projectCard(PROJECTS['meshtalk']); },
     'skills': function() {
-      return '<span class="cm">Languages :</span> Python \u00b7 Go \u00b7 C/C++ \u00b7 Bash \u00b7 Java<br>'
+      return '<span class="cm">Languages :</span> Python \u00b7 Go \u00b7 Bash \u00b7 JavaScript \u00b7 C/C++ \u00b7 Java<br>'
         + '<span class="cm">DevOps    :</span> Docker \u00b7 Kubernetes \u00b7 GitHub Actions \u00b7 Git<br>'
         + '<span class="cm">Backend   :</span> FastAPI \u00b7 Node.js \u00b7 Express \u00b7 REST APIs<br>'
         + '<span class="cm">Systems   :</span> Linux \u00b7 ESP-IDF \u00b7 FreeRTOS \u00b7 BLE Mesh';
@@ -310,5 +310,6 @@
     const h = Math.floor(m / 60);
     el.textContent = h > 0 ? `${h}h ${m % 60}m ${s % 60}s` : m > 0 ? `${m}m ${s % 60}s` : `${s}s`;
   }, 1000);
-
+  var aboutAscii = document.querySelector('.ascii-big');
+  if (aboutAscii) aboutAscii.textContent = ASCII.join('\n');
 })();
