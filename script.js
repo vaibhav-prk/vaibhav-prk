@@ -176,9 +176,9 @@
     },
     'github': function() {
       setTimeout(() => {
-        window.open('https://github.com/VaibhavPrakash0503', '_blank');
+        window.open('https://github.com/vaibhav-prk', '_blank');
       }, 1000);
-      return '<span class="cg">opening github.com/VaibhavPrakash0503 ...</span>';
+      return '<span class="cg">opening github.com/vaibhav-prk ...</span>';
     },
     'resume': function() {
       setTimeout(() => {
@@ -188,7 +188,7 @@
     },
     'contact': function() {
       return '<span class="cm">email   </span>: vaibhav.prk05@gmail.com<br>'
-        + '<span class="cm">github  </span>: github.com/VaibhavPrakash0503<br>'
+        + '<span class="cm">github  </span>: github.com/vaibhav-prka<br>'
         + '<span class="cm">linkedin</span>: linkedin.com/in/vaibhav-prakash-634a952ba<br>'
         + '<span class="cm">phone   </span>: +91 91995 96081';
     },
