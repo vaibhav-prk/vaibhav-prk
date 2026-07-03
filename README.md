@@ -1,9 +1,9 @@
 <h1 align="center">Hi 👋, I'm Vaibhav Prakash</h1>
 <h3 align="center">A passionate backend developer</h3>
 
-- 👨‍💻 All of my projects are available at [https://vaibhavprakash0503.github.io/VaibhavPrakash0503/](https://vaibhavprakash0503.github.io/VaibhavPrakash0503/)
+- 👨‍💻 All of my projects are available at [https://vaibhav-prk.github.io/vaibhav-prk/](https://vaibhav-prk.github.io/vaibhav-prk/)
 
-- 📫 How to reach me **vaibhav.prk05@gmail.com**
+- 📫 How to reach me **<vaibhav.prk05@gmail.com>**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
