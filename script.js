@@ -188,7 +188,7 @@
     },
     'contact': function() {
       return '<span class="cm">email   </span>: vaibhav.prk05@gmail.com<br>'
-        + '<span class="cm">github  </span>: github.com/vaibhav-prka<br>'
+        + '<span class="cm">github  </span>: github.com/vaibhav-prk<br>'
         + '<span class="cm">linkedin</span>: linkedin.com/in/vaibhav-prakash-634a952ba<br>'
         + '<span class="cm">phone   </span>: +91 91995 96081';
     },
