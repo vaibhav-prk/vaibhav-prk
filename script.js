@@ -96,7 +96,8 @@
   /* ── typewriter intro ── */
   const INTRO = [
     { type: 'cmd', text: 'vaibhav --info' },
-    { type: 'neo' }
+    { type: 'neo' },
+    { type: 'line', html: `<span class="cd"># type '<span class="cb">help</span>' to see available commands</span>` }
   ];
   let introIdx = 0;
 
@@ -106,6 +107,15 @@
       return;
     }
     const item = INTRO[introIdx++];
+    if (item.type === 'line') {
+      const el = document.createElement('div');
+      el.className = 'tl-out';
+      el.style.padding = '2px 0';
+      el.innerHTML = item.html;
+      twBody.appendChild(el);
+      setTimeout(runIntro, 150);
+      return;
+    }
     if (item.type === 'neo') {
       const el = document.createElement('div');
       el.className = 'tl-out';

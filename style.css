@@ -408,18 +408,32 @@ body {
   color: var(--subtext0);
   text-align: center;
   z-index: 1;
-  animation: pulse 2.2s ease-in-out infinite;
-  letter-spacing: .04em
+  letter-spacing: .04em;
+  margin-top: 6px
 }
 
 .scroll-hint em {
-  color: var(--mauve);
-  font-style: normal
+  color: var(--text);
+  font-style: normal;
+  font-weight: 500
 }
 
-@keyframes pulse {
+.bounce-arrow {
+  display: inline-block;
+  color: var(--mauve);
+  font-style: normal;
+  animation: bounce 1.4s ease infinite
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0)
+  }
+
   50% {
-    opacity: .3
+    transform: translateY(6px)
   }
 }
 
