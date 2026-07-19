@@ -378,15 +378,14 @@ body {
   color: var(--green)
 }
 
-.term-input-row {
-  display: flex;
-  align-items: center;
-  border-top: 1px solid var(--surface0);
-  padding: 11px 24px;
-  gap: 8px
+.tw-body {
+  padding: 22px 24px;
+  height: 380px;
+  overflow-y: auto;
+  cursor: text
 }
 
-#term-input {
+.tl-input {
   flex: 1;
   background: transparent;
   border: none;
@@ -394,10 +393,13 @@ body {
   color: var(--text);
   font-family: 'JetBrains Mono', monospace;
   font-size: 13px;
-  caret-color: var(--mauve)
+  caret-color: var(--mauve);
+  min-width: 0;
+  padding: 0;
+  line-height: inherit
 }
 
-#term-input::placeholder {
+.tl-input::placeholder {
   color: var(--overlay0)
 }
 
@@ -951,20 +953,7 @@ a.cert-card:hover {
     font-size: 12px;
   }
 
-
-  /* fix input row overflow ── */
-  .term-input-row {
-    padding: 10px 14px;
-    overflow: hidden;
-  }
-
-  .tl-prompt {
-    font-size: 11px;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  #term-input {
+  .tl-input {
     font-size: 12px;
     min-width: 0;
     width: 100%;

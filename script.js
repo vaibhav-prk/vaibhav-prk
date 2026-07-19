@@ -9,7 +9,7 @@
   updateClock();
   setInterval(updateClock, 1000);
 
-  /* PROMPT */
+  /* PROMPT HTML */
   const P = () =>
     `<span class="tl-p">`
     + `<span class="u">vaibhav</span>`
@@ -63,8 +63,37 @@
       + `</div>`;
   };
 
-  /* TYPEWRITER INTRO */
+  /* TERMINAL */
   const twBody = document.getElementById('tw-body');
+
+  /* ── inline prompt + input (like a real terminal) ── */
+  let activeInput = null;
+  let activeRow = null;
+
+  const createInputLine = () => {
+    activeRow = document.createElement('div');
+    activeRow.className = 'tl';
+    activeRow.innerHTML = P();
+
+    activeInput = document.createElement('input');
+    activeInput.type = 'text';
+    activeInput.className = 'tl-input';
+    activeInput.autocomplete = 'off';
+    activeInput.spellcheck = false;
+    activeRow.appendChild(activeInput);
+
+    twBody.appendChild(activeRow);
+    twBody.scrollTop = twBody.scrollHeight;
+    activeInput.focus();
+    activeInput.addEventListener('keydown', handleInput);
+  };
+
+  /* click anywhere in terminal body → focus input */
+  twBody.addEventListener('click', () => {
+    if (activeInput) activeInput.focus();
+  });
+
+  /* ── typewriter intro ── */
   const INTRO = [
     { type: 'cmd', text: 'vaibhav --info' },
     { type: 'neo' }
@@ -72,13 +101,17 @@
   let introIdx = 0;
 
   const runIntro = () => {
-    if (introIdx >= INTRO.length) return;
+    if (introIdx >= INTRO.length) {
+      createInputLine();
+      return;
+    }
     const item = INTRO[introIdx++];
     if (item.type === 'neo') {
       const el = document.createElement('div');
       el.className = 'tl-out';
       el.innerHTML = buildNeofetch();
       twBody.appendChild(el);
+      setTimeout(runIntro, 100);
       return;
     }
     if (item.type === 'cmd') {
@@ -200,7 +233,7 @@
           const el = document.createElement('div');
           el.className = 'tl-out';
           el.innerHTML = `<span class="c-dim">[${i + 1}/5]</span> <span class="c-green">${step}</span>`;
-          twBody.appendChild(el);
+          twBody.insertBefore(el, activeRow);
           twBody.scrollTop = twBody.scrollHeight;
         }, i * 600);
       });
@@ -214,52 +247,55 @@
   const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
   /* COMMAND HISTORY */
-  const history = [];
+  const cmdHistory = [];
   let histIdx = -1;
 
-  const input = document.getElementById('term-input');
-  input.addEventListener('keydown', function(e) {
-
+  /* ── handle input keystrokes ── */
+  const handleInput = function(e) {
     if (e.key === 'ArrowUp') {
       e.preventDefault();
-      if (!history.length) return;
-      histIdx = Math.min(histIdx + 1, history.length - 1);
-      this.value = history[histIdx];
-      const l = this.value.length;
-      this.setSelectionRange(l, l);
+      if (!cmdHistory.length) return;
+      histIdx = Math.min(histIdx + 1, cmdHistory.length - 1);
+      activeInput.value = cmdHistory[histIdx];
+      const l = activeInput.value.length;
+      activeInput.setSelectionRange(l, l);
       return;
     }
 
     if (e.key === 'ArrowDown') {
       e.preventDefault();
-      if (histIdx <= 0) { histIdx = -1; this.value = ''; return; }
+      if (histIdx <= 0) { histIdx = -1; activeInput.value = ''; return; }
       histIdx--;
-      this.value = history[histIdx];
-      const l = this.value.length;
-      this.setSelectionRange(l, l);
+      activeInput.value = cmdHistory[histIdx];
+      const l = activeInput.value.length;
+      activeInput.setSelectionRange(l, l);
       return;
     }
 
     if (e.key !== 'Enter') return;
 
-    const raw = this.value.trim();
-    this.value = '';
+    const raw = activeInput.value.trim();
     if (!raw) return;
 
-    if (!history.length || history[0] !== raw) history.unshift(raw);
+    if (!cmdHistory.length || cmdHistory[0] !== raw) cmdHistory.unshift(raw);
     histIdx = -1;
 
-    /* echo */
-    const echo = document.createElement('div');
-    echo.className = 'tl';
-    echo.innerHTML = P() + `<span class="tl-cmd">${esc(raw)}</span>`;
-    twBody.appendChild(echo);
+    /* freeze current line: replace input with static command text */
+    activeInput.removeEventListener('keydown', handleInput);
+    const cmdSpan = document.createElement('span');
+    cmdSpan.className = 'tl-cmd';
+    cmdSpan.textContent = raw;
+    activeRow.removeChild(activeInput);
+    activeRow.appendChild(cmdSpan);
 
+    /* clear */
     if (raw.toLowerCase() === 'clear') {
       twBody.innerHTML = '';
+      createInputLine();
       return;
     }
 
+    /* execute command and show output */
     const handler = CMDS[raw.toLowerCase()];
     const out = document.createElement('div');
     out.className = 'tl-out';
@@ -268,8 +304,10 @@
       : `<span class="cd">zsh: command not found: </span><span class="cr">${esc(raw)}</span>  <span class="cd">(type <span class="cb">help</span>)</span>`;
 
     twBody.appendChild(out);
-    twBody.scrollTop = twBody.scrollHeight;
-  });
+
+    /* new prompt line */
+    createInputLine();
+  };
 
   /* ACTIVE NAV TAB */
   const tabMap = {
