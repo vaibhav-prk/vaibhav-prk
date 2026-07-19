@@ -280,11 +280,12 @@
 
   /* ACTIVE NAV TAB */
   var tabMap = {
-    '~': 'hero',
-    'about': 'about-section',
-    'skills': 'skills-section',
-    'projects': 'projects-section',
-    'contact': 'contact-section'
+    'hero': 'hero',
+    'about-section': 'about-section',
+    'skills-section': 'skills-section',
+    'projects-section': 'projects-section',
+    'certs-section': 'certs-section',
+    'contact-section': 'contact-section'
   };
   var navTabs = document.querySelectorAll('.tb-tab');
 
@@ -295,7 +296,7 @@
     });
     navTabs.forEach(function(t) {
       var key = t.getAttribute('href').replace('#', '');
-      t.classList.toggle('active', tabMap[key] === cur || (key === '~' && cur === 'hero'));
+      t.classList.toggle('active', tabMap[key] === cur);
     });
   }, { passive: true });
 
@@ -311,4 +312,16 @@
   }, 1000);
   var aboutAscii = document.querySelector('.ascii-big');
   if (aboutAscii) aboutAscii.textContent = ASCII.join('\n');
+
+  /* SCROLL REVEAL */
+  var revealEls = document.querySelectorAll('.reveal');
+  var revealObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(function(el) { revealObs.observe(el); });
 })();

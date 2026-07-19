@@ -8,7 +8,7 @@
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231e1e2e'/><text x='50' y='68' font-family='monospace' font-weight='bold' font-size='52' fill='%23cba6f7' text-anchor='middle'>VP</text></svg>">
   <link
-    href="ps://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
   <style>
     :root {
@@ -383,6 +383,14 @@
       color: var(--red)
     }
 
+    .c-dim {
+      color: var(--overlay0)
+    }
+
+    .c-green {
+      color: var(--green)
+    }
+
     .term-input-row {
       display: flex;
       align-items: center;
@@ -424,6 +432,18 @@
       50% {
         opacity: .3
       }
+    }
+
+    /* SCROLL REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .6s ease, transform .6s ease
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0)
     }
 
     /* SECTIONS */
@@ -939,7 +959,7 @@
       }
 
       .tw-body {
-        height: 3400px;
+        height: 280px;
         padding: 12px 14px;
         font-size: 12px;
       }
@@ -1074,6 +1094,7 @@
       <a href="#about-section" class="tb-tab">about</a>
       <a href="#skills-section" class="tb-tab">skills</a>
       <a href="#projects-section" class="tb-tab">projects</a>
+      <a href="#certs-section" class="tb-tab">certs</a>
       <a href="#contact-section" class="tb-tab">contact</a>
     </div>
     <div class="tb-right">
@@ -1102,7 +1123,7 @@
   </div>
 
   <!-- ABOUT -->
-  <section id="about-section">
+  <section class="reveal" id="about-section">
     <div class="sec-header">
       <span class="dollar">$</span>
       <span class="cmd">cat about.txt</span>
@@ -1143,7 +1164,7 @@
   </section>
 
   <!-- SKILLS -->
-  <section id="skills-section">
+  <section class="reveal" id="skills-section">
     <div class="sec-header">
       <span class="dollar">$</span>
       <span class="cmd">skills --list</span>
@@ -1191,7 +1212,7 @@
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects-section">
+  <section class="reveal" id="projects-section">
     <div class="sec-header">
       <span class="dollar">$</span>
       <span class="cmd">projects</span>
@@ -1287,7 +1308,7 @@
   </section>
 
   <!-- CERTS -->
-  <section id="certs-section">
+  <section class="reveal" id="certs-section">
     <div class="sec-header">
       <span class="dollar">$</span>
       <span class="cmd">certifications --list</span>
@@ -1296,7 +1317,7 @@
     </div>
     <div class="cert-list">
       <div class="cert-list">
-        <a href="https://www.credly.com/badges/ffc9793a-d65f-4f0c-bbc6-907e3a3ad4cc/public_url" taget="_blank"
+        <a href="https://www.credly.com/badges/ffc9793a-d65f-4f0c-bbc6-907e3a3ad4cc/public_url" target="_blank"
           rel="noopener" class="cert-card">
           <div>
             <div class="cert-name">Linux 101 &mdash; LFS101</div>
@@ -1306,21 +1327,21 @@
       </div>
 
       <div class="cert-list">
-        <a href="https://courses.ibmcep.cognitiveclass.ai/certificates/5247f7c960ce46dd843bdba86db4cb59" taget="_blank"
+        <a href="https://courses.ibmcep.cognitiveclass.ai/certificates/5247f7c960ce46dd843bdba86db4cb59" target="_blank"
           rel="noopener" class="cert-card">
           <div>
             <div class="cert-name">DevOps, Agile and Design Thinking</div>
-            <div class="cert-issuer">IBM Carrer Education Program&nbsp;&middot;&nbsp; July, 2026
+            <div class="cert-issuer">IBM Career Education Program&nbsp;&middot;&nbsp; July, 2026
             </div>
           </div>
         </a>
       </div>
       <div class="cert-list">
-        <a href="https://www.credly.com/badges/f72c07cc-e13b-4bbb-9bb4-2fdcccf8d917/public_url" taget="_blank"
+        <a href="https://www.credly.com/badges/f72c07cc-e13b-4bbb-9bb4-2fdcccf8d917/public_url" target="_blank"
           rel="noopener" class="cert-card">
           <div>
-            <div class="cert-name">AWS Academy Gradudate &mdash; Cloud Architecting</div>
-            <div class="cert-issuer">Amazon Web Services Traning and Certification &nbsp;&middot;&nbsp; October, 2025
+            <div class="cert-name">AWS Academy Graduate &mdash; Cloud Architecting</div>
+            <div class="cert-issuer">Amazon Web Services Training and Certification &nbsp;&middot;&nbsp; October, 2025
             </div>
           </div>
         </a>
@@ -1338,7 +1359,7 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="contact-section">
+  <section class="reveal" id="contact-section">
     <div class="sec-header">
       <span class="dollar">$</span>
       <span class="cmd">contact --info</span>
